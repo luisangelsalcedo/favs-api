@@ -1,0 +1,32 @@
+{
+  "name": "favs-backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start": "src/index.js",
+    "dev": "set NODE_ENV=dev&& nodemon src/index.js",
+    "dev-test": "set NODE_ENV=test&& nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "jest": "^28.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.10"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "nodemon": "^2.0.16"
+  }
+}
