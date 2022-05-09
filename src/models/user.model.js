@@ -15,7 +15,7 @@ const userSchema = new Schema(
       required: [true, "is required"],
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$/,
-        "Invalid email address",
+        "invalid email address",
       ],
     },
     password: {
@@ -63,16 +63,16 @@ userSchema.statics.userAuth = async function (req) {
     return new Promise((resolve, reject) => {
       bcrypt.compare(pass, user.password, (err, result) => {
         if (err) {
-          reject(errorResponse(422, "Password is required"));
+          reject(errorResponse(422, "password is required"));
         }
         if (!result) {
-          reject(errorResponse(403, "Password is not correct"));
+          reject(errorResponse(403, "password is not correct"));
         }
         resolve(generateJWT({ id: user._id, name: user.name }));
       });
     });
 
-  throw errorResponse(404, "User not found");
+  throw errorResponse(404, "user not found");
 };
 /**
  * * statics
@@ -83,11 +83,11 @@ userSchema.statics.verifyToken = async function (req) {
   return new Promise((resolve, reject) => {
     jwt.verify(token, config.token.secret, (err, payload) => {
       if (err) {
-        reject(errorResponse(401, "Invalid token"));
+        reject(errorResponse(401, "invalid token"));
       }
 
       this.findById(payload.id).then(user => {
-        if (!user) reject(errorResponse(401, "Invalid token"));
+        if (!user) reject(errorResponse(401, "invalid token"));
         else resolve(payload);
       });
     });

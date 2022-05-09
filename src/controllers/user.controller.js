@@ -7,7 +7,7 @@ import { successResponse } from "./../utils/index.js";
 const login = async (req, res, next) => {
   try {
     const token = await User.userAuth(req);
-    successResponse(res, 200, "User logged", token);
+    successResponse(res, 200, "user logged", token);
   } catch (error) {
     next(error);
   }
@@ -19,7 +19,7 @@ const login = async (req, res, next) => {
 const createUser = async (req, res, next) => {
   try {
     const user = await User.create(req.body);
-    successResponse(res, 201, "User created", user);
+    successResponse(res, 201, "user created", user);
   } catch (error) {
     next(error);
   }
@@ -31,7 +31,7 @@ const createUser = async (req, res, next) => {
 const tokenAuth = async (req, res, next) => {
   try {
     const payload = await User.verifyToken(req);
-    successResponse(res, 200, "Verified token", payload);
+    successResponse(res, 200, "verified token", payload);
   } catch (error) {
     next(error);
   }

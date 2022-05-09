@@ -14,7 +14,7 @@
 <img src="https://img.icons8.com/color/32/000000/heroku.png"/>&nbsp;&nbsp;
 </div>
 
-## [Repositorio](https://github.com/luisangelsalcedo/bootcamp-challenges/tree/main/assesment2/favs-backend) &nbsp;&nbsp;|&nbsp;&nbsp; [Deploy](https://favs-backend.herokuapp.com/)
+## [Repositorio](https://github.com/luisangelsalcedo/favs-api) &nbsp;&nbsp;|&nbsp;&nbsp; [Deploy](https://favs-backend.herokuapp.com/)
 
 <br>
 <img src="./public/img/screenshot.jpg"/>
@@ -34,15 +34,15 @@ Set environment variables:
 
 ## Project Installation:
 
-1. **Download the project** by opening the terminal and running the following command:
+1. **Download the project** by opening the terminal and executing the following command:
    ```
    git clone https://github.com/luisangelsalcedo/favs-api.git
    ```
-2. **Get into the project directory** by running the following command:
+2. **Get into the project directory** by executing the following command:
    ```
    cd favs-api
    ```
-3. **Install all dependencies** by running the following command:
+3. **Install all dependencies** by executing the following command:
    ```
    npm install
    ```
@@ -52,11 +52,27 @@ Set environment variables:
    ```
 5. Open the following URL <http://localhost:5000> in your browser.
 
-   > If you have any questions, [contact us](mailto://seemc9@gmail.com)
+   > If you have any questions, [contact us](https://mailto:seemc9@gmail.com)
 
 ## Documentation
 
 You can find all the functionalities of the api documented in the following link: [Favs api documentation](https://documenter.getpostman.com/view/11240421/UyxdLpRF)
+
+## Run tests
+
+Set environment variables for tests:
+
+- Create a file called **test.env**
+- Use [reference](./.env.example)
+
+Run the application in the test environment:
+
+- Running the command: `npm run dev-test` to start the application in the test environment.
+- Open another terminal
+- Running the command: `npm run test` to run all the tests.
+
+> Test endpoint **auth user**
+> ![](./public/img/test-user.png)
 
 <br><br><br>
 
