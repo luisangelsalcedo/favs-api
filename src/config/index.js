@@ -19,5 +19,3 @@ export const config = {
     secret: process.env.TOKEN_SECRET,
   },
 };
-
-console.log(config.database.uri);

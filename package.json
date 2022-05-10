@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "start": "src/index.js",
+    "start": "node src/index.js",
     "dev": "set NODE_ENV=dev&& nodemon src/index.js",
     "dev-test": "set NODE_ENV=test&& nodemon src/index.js"
   },
