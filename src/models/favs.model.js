@@ -8,7 +8,7 @@ const favsSchema = new Schema(
     list: [
       {
         title: {
-          required: [true, "Favs list title is required"],
+          required: [true, "item title is required"],
           type: String,
           minLength: 2,
         },
@@ -23,6 +23,18 @@ const favsSchema = new Schema(
     timestamps: true,
   }
 );
+/**
+ * * validate
+ */
+favsSchema.path("name").validate({
+  async validator(name) {
+    return mongoose
+      .model("Favs")
+      .findOne({ name })
+      .then(favs => !favs);
+  },
+  message: "is already taken",
+});
 /**
  * * statics
  */

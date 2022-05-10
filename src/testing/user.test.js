@@ -3,6 +3,8 @@ import axios from "axios";
 let userMock;
 let userValid;
 let token;
+let invalidPassword;
+let invalidToken;
 
 beforeAll(() => {
   axios.defaults.baseURL = "http://localhost:5000/auth/local";
@@ -11,6 +13,9 @@ beforeAll(() => {
     password: "1234",
     name: "Luis Salcedo",
   };
+
+  invalidPassword = "invalidPassword";
+  invalidToken = "invalidToken";
 });
 
 describe("Pruebas de registro de usuario", () => {
@@ -69,7 +74,7 @@ describe("Pruebas de registro de usuario", () => {
     const endpoint = `/register`;
 
     try {
-      await axios.post(endpoint, { password: "invalidPassword" });
+      await axios.post(endpoint, { password: invalidPassword });
     } catch ({ response }) {
       const { status, data } = response;
 
@@ -171,7 +176,7 @@ describe("Pruebas de inicio de sesión", () => {
     try {
       await axios.post(endpoint, {
         email: userMock.email,
-        password: "invalidPassword",
+        password: invalidPassword,
       });
     } catch ({ response }) {
       const { status, data } = response;
@@ -204,7 +209,6 @@ describe("Pruebas de validación de token", () => {
   // ❌
   it("Error: Validar token inválido", async () => {
     const endpoint = `/validate`;
-    const invalidToken = "invalidToken";
 
     try {
       await axios.get(`${endpoint}/${invalidToken}`);

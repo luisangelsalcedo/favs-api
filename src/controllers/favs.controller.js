@@ -8,7 +8,7 @@ const createFavs = async (req, res, next) => {
   try {
     const { id } = req.auth;
     const favs = await Favs.create({ ...req.body, owner: id });
-    successResponse(res, 201, "Favs created", favs);
+    successResponse(res, 201, "favs created", favs);
   } catch (error) {
     next(error);
   }
@@ -32,7 +32,7 @@ const getAllFavs = async (req, res, next) => {
 const findById = async (req, res, next, id) => {
   try {
     const favs = await Favs.findById(id);
-    if (!favs) throw errorResponse(404, "Favs list not found");
+    if (!favs) throw errorResponse(404, "favs list not found");
     req.favs = favs;
     next();
   } catch (error) {
@@ -58,9 +58,10 @@ const getOneFavs = async (req, res, next) => {
 const updateFavs = async (req, res, next) => {
   try {
     const { favs } = req;
-    Object.assign(favs, req.body);
-    const updated = await favs.save();
-    successResponse(res, 200, "Favs list has been updated", updated);
+    const updated = await Favs.findByIdAndUpdate(favs._id, req.body, {
+      new: true,
+    });
+    successResponse(res, 200, "favs list has been updated", updated);
   } catch (error) {
     next(error);
   }
@@ -73,7 +74,7 @@ const deleteFavs = async (req, res, next) => {
   try {
     const { favs } = req;
     const removed = await favs.remove();
-    successResponse(res, 200, "Favs list has been removed", removed);
+    successResponse(res, 200, "favs list has been removed", removed);
   } catch (error) {
     next(error);
   }
