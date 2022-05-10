@@ -77,4 +77,4 @@ Run the application in the test environment:
 > Test endpoint **auth [favs](./src/testing/favs.test.js)**  
 > ![](./public/img/test-favs.png)
 
-<br><br><br>
+
